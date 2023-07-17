@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>settings.js Editor</title>
+    <style>
+        .centered-line {
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body style="background-color: lightgray;">
+    <h1 class="centered-line">Real-World Free-Operant (V2.0) Configuration</h1>
+    <img id="game_title_image" src="game_title_image.jpg"
+        style="display: block; margin: auto; width: 30%; border-radius: 30px;" />
+    <h2><u>Notes:</u></h2>
+    <p>This web page was designed to enable researchers interested in using the Real-World Free-Operant app to
+        easily edit the main setup file (named settings.js).</p>
+
+    <h3>About the app:</h3>
+    <ul>
+        <li>To app was first published by Gera et al. <a href="https://psyarxiv.com/kgqun/" target="_blank">See the
+                paper</a>.</li>
+        <li> <a href="https://ranigera.github.io/RWFO_app_demo/" target="_blank">See a demo of the app.</a></li>
+        <li>To app can be downloaded from <a href="https://github.com/ranigera/HabitApp" target="_blank">here</a>.
+            Download the RWFO_app_V2 folder from the repository. The file formed here was designed to be integrated with
+            a new version (V2.0) we created. This version is enriched with more
+            functionalities to potentially accommodate a large variety of potential research questions.</li>
+    </ul>
+    <h3>About creating the settings.js file:</h3>
+    <ul>
+        <li>The parameters below are pre-set in match the parameters used in the original study.</li>
+        <li>You can set them as you see fit.</li>
+        <li>Once you finish, click on the "Create the settings.js file" button below and replace the existed settings.js
+            (in the app main folder).</li>
+        <li>See notes regarding each parameter.</li>
+        <li>Note that some parameters are contingent on others (this will be clearly
+            indicated). You can ignore parameter values that other parameters make them unused.</li>
+        <li>Important: while we created this page to accommodate tunning many parameters, more parameters can be edited
+            manually in the settings.js file (it is structured like a json file).</li>
+        <li>We strongly encourage to run some tests after setting the parameter file (this is a new version and we
+            couldn't exhaustively test all
+            the variable/parameter combinations).</li>
+        <li>If you have any questions, interested in other functionalities or wish to collaborate, please
+            <a href="mailto:ranigera.aristo@gmail.com">contact us</a>.
+        </li>
+    </ul>
+
+    <hr style="border-width: 2px;">
+    <hr style="border-width: 2px;">
+    <script src="settings_template.js"></script>
+    <script src="setup.js"></script>
+</body>
+
+</html>
