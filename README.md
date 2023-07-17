@@ -1,7 +1,4 @@
-# RWFO_app_setup
-
-## Real-World Free-Operant (V2.0) Configuration
-![Game Title Image](game_title_image.jpg)
+## Real-World Free-Operant (RWFO) app (V2.0) Configuration - website repo
 
 ### General:
 This repository is used to create a web page that was designed to enable researchers interested in using the Real-World Free-Operant app to easily edit the main setup file (named `settings.js`).
