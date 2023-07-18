@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var hr = document.createElement("hr"); // Create a new <hr> element
             container.appendChild(hr);
             var h2 = document.createElement("h2");
-            h2.innerHTML = 'Manipulatino check';
+            h2.innerHTML = 'Manipulation check';
             container.appendChild(h2);
             var description = app_settings[key], var_name = key.replace("SETUP_TEXT_", ""), value = app_settings[key.replace("SETUP_TEXT_", "")];
             var inputField = createInputField(description, var_name, value);
@@ -154,7 +154,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             }
             var p = document.createElement("p");
-            p.innerHTML = '<i>* Other cost parameters can manually editted in the output file (settings.js).</i>';
+            p.innerHTML = '<i>* Other cost parameters can be manually edited in the output file (settings.js).</i>';
             container.appendChild(p);
 
         } else if (key === 'group_vars') {
@@ -164,10 +164,10 @@ document.addEventListener("DOMContentLoaded", function () {
             h2.innerHTML = 'Groups - duration and manipulation days';
             container.appendChild(h2);
             var li = document.createElement("li");
-            li.innerHTML = 'You can selectively use only one/two groups. Group assignment is based only on the subject number extracted form the links you choose to send to the participants.';
+            li.innerHTML = 'You can selectively use only one/two groups. Group assignment is based only on the subject number extracted from the links you choose to send to the participants.';
             container.appendChild(li);
             var li = document.createElement("li");
-            li.innerHTML = 'Therefore, you can just ignore the parameters of unusded groups.';
+            li.innerHTML = 'Therefore, you can just ignore the parameters of unused groups.';
             container.appendChild(li);
             for (var key2 in app_settings[key]) {
                 if (key2.includes("SETUP_TEXT_")) {
@@ -283,7 +283,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .replace(/"([^"]+)":/g, '$1:')
             .replace(/\[\n\s+/g, '[')
             .replace(/\n\s+\]/g, ']')
-            .replace(/(?<=\[[^\[\]]*?)\n\s+/g, '')
+            .replace(/(\[[^\[\]]*?)(?:\n\s+)/g, '$1')
             .replace(/\s+(?=[^\[\]]*?\])/g, '')
             .replace(/\\t/g, '\t').replace(/\\n/g, '\n')
             .replace(/"(\s*function\s*\(.*?\)\s*{[\s\S]*?})"/g, '$1');

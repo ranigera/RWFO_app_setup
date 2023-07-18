@@ -8,25 +8,25 @@ window.app_settings = {
 		ws_base_address: 'wss://experiments.schonberglab.org',
 	},
 	app_base_adress: 'https://DOMAIN_NAME/PATH',  // <HTML ADJUSTABLE>
-	SETUP_TEXT_app_base_adress: 'App base adress:<br>* used to create the installation links for participants',  // <HTML ADJUSTABLE>
+	SETUP_TEXT_app_base_adress: 'App base address:<br>* used to create the installation links for participants',  // <HTML ADJUSTABLE>
 	context: 'Space_Gold',  // <HTML ADJUSTABLE>
 	SETUP_TEXT_context: "App/context name (Don't use spaces; you can use underscores and they will be replaced with a space where relevant): ",  // <HTML ADJUSTABLE>
 	one_time_link: true, // <HTML ADJUSTABLE>
-	SETUP_TEXT_one_time_link: "Do you want the installation links to work only once?<br>* This prevents installation on more than one device. But if the page reload before installation you'd need to send a new link (with a new subject number). ", // <HTML ADJUSTABLE>
+	SETUP_TEXT_one_time_link: "Do you want the installation links to work only once?<br>* This prevents installation on more than one device. But if the page reloads before installation you'd need to send a new link (with a new subject number). ", // <HTML ADJUSTABLE>
 	downloadAllToLocalStorage: false, // this refers to the case where the data need to be downloaded again to the local storage (e.g., after reinstalling the app because of a problem)
 	minDailyDataPointsToStoreLocally: 20,
 	experimentalDayStartingHour: 5, // Possiblie assignments are 0-23. Assign 0 to simply seperate between days.  Relevant for example to determine the time at day to empty container according to a 24h watch. 
 	pressesRequired: 2,
 	rewards: {
 		isRatioSchedule: true, // <HTML ADJUSTABLE>
-		SETUP_TEXT_isRatioSchedule: 'Use a random RATIO reinfocement schedule?<br> set to false to use a random INTERVAL reinfocement schedule will be used.', // <HTML ADJUSTABLE>
+		SETUP_TEXT_isRatioSchedule: 'Use a random RATIO reinforcement schedule?<br> set to false to use a random INTERVAL reinforcement schedule will be used.', // <HTML ADJUSTABLE>
 		winningRate: 3, // <HTML ADJUSTABLE> per entries if isRatioSchedule is true; per seconds if isRatioSchedule is false.  <HTML ADJUSTABLE>
-		SETUP_TEXT_winningRate: 'Winning rate:<br>Use an integer. It will be used according to the reinforcement schedule type:<br>* in RATIO schedule each TRIAL will have 1/x of winnin.<br> * in INTERVAL schedule each second (measured from the last entry) will have 1/x chance of making the raward available, "waiting" to be collected.', // <HTML ADJUSTABLE>
+		SETUP_TEXT_winningRate: 'Winning rate:<br>Use an integer. It will be used according to the reinforcement schedule type:<br>* in a RATIO schedule each TRIAL will have 1/x of winning.<br> * in an INTERVAL schedule each second (measured from the last entry) will have 1/x chance of making the reward available, "waiting" to be collected.', // <HTML ADJUSTABLE>
 		winningChancePerUnit: function () {
 			return 1 / this.winningRate;
 		},
 		isVariableReward: false, // <MAYBE MAKE IT HTML ADJUSTABLE>
-		SETUP_TEXT_isVariableReward: 'Use a variable reward amount?<br>* if set to false a constant sum will be used.<br>* if set to true will be sample from a uniform distribution according to the values specifies where relevant below.', // <HTML ADJUSTABLE>
+		SETUP_TEXT_isVariableReward: 'Use a variable reward amount?<br>* if set to false a constant sum will be used.<br>* if set to true will be sampled from a uniform distribution according to the values specified where relevant below.', // <HTML ADJUSTABLE>
 		// for constant reward:
 		rewardConstantSum: 15,
 		SETUP_TEXT_rewardConstantSum: 'Constant reward sum (applicable if "Use a variable reward amount" above was set to false):', // <HTML ADJUSTABLE>
@@ -38,17 +38,17 @@ window.app_settings = {
 
 		// Sure win stuff:
 		winAnywayIfMultipleNonWins: true, // this is to make sure that in case a participant did not win many times they will. <HTML ADJUSTABLE>
-		SETUP_TEXT_winAnywayIfMultipleNonWins: 'Win anyway if multiple non-wins?<br>* if set to true, if the participant did not win for a long time (2 times the winning rate), they will win anyway.<br>* in the case of random interval schedule it will also required that the participant entered during the relevant period at least once.', // <HTML ADJUSTABLE>
+		SETUP_TEXT_winAnywayIfMultipleNonWins: 'Win anyway if multiple non-wins?<br>* if set to true, if the participant did not win for a long time (2 times the winning rate), they will win anyway.<br>* in the case of a random interval schedule, it will also require that the participant entered during the relevant period at least once.', // <HTML ADJUSTABLE>
 		RelativeNonWinUnitsBeforeSureWinning: function () {
 			return this.winningRate * 2;
 		},
 
 		// First daily entries stuff:
 		enforceFirstEntryNoWinSecondEntryWin: true, // <HTML ADJUSTABLE> <<< if this and enforce_n_random_winnings_during_minimum_entries are true, the latter takes precedence
-		SETUP_TEXT_enforceFirstEntryNoWinSecondEntryWin: 'Enforce daily beginning pattern of first entry no win second entry win?<br>* if set to true, the first entry of the day will be a win and the second will be a no win.<br>* in the case of random interval schedule it will also required that the participant entered during the relevant period at least once.', // <HTML ADJUSTABLE>
+		SETUP_TEXT_enforceFirstEntryNoWinSecondEntryWin: 'Enforce daily beginning pattern of first entry no win second entry win?<br>* if set to true, the first entry of the day will be a win and the second will be a no win.<br>* in the case of a random interval schedule it will also require that the participant entered during the relevant period at least once.', // <HTML ADJUSTABLE>
 
 		enforce_n_random_winnings_during_minimum_entries: false, // <HTML ADJUSTABLE>
-		SETUP_TEXT_enforce_n_random_winnings_during_minimum_entries: 'Enforce random winnings during initial daily entries?<br>If set to true, participants will have n random winnings (determined below) during the first few daily entries.<br>* NOTE: "initial daily entries" is determined below under "Daily entry to manipulate in". <i>Even if the experiment is set to have no devaluation/control manipulations, the value in this window will be used for the purpose of determinning what is the number of "initial daily entries".</i><br> * if the value here and under "Enforce daily beginning pattern..." above are set to true, this one here will take precedence.', // <HTML ADJUSTABLE>
+		SETUP_TEXT_enforce_n_random_winnings_during_minimum_entries: 'Enforce random winnings during initial daily entries?<br>If set to true, participants will have n random winnings (determined below) during the first few daily entries.<br>* NOTE: The number of "initial daily entries" is determined below under "Daily entry to manipulate in". <i>Even if the experiment is set to have no devaluation/control manipulations, the value in this window will be used for the purpose of determining what is the number of "initial daily entries".</i><br> * if the value here and under "Enforce daily beginning pattern..." above are set to true, this one here will take precedence.', // <HTML ADJUSTABLE>
 		n_random_winnings_during_minimum_entries: 2, // <HTML ADJUSTABLE>
 		SETUP_TEXT_n_random_winnings_during_minimum_entries: 'Number of random winnings during initial daily entries (applicable only if "Enforce random winnings during initial daily entries" above was set to true):', // <HTML ADJUSTABLE>
 
@@ -60,13 +60,13 @@ window.app_settings = {
 		includeAversiveOutcome: false, // <HTML ADJUSTABLE>
 		SETUP_TEXT_includeAversiveOutcome: 'Include loss outcomes?', // <HTML ADJUSTABLE>
 		losingRate: 3, // <HTML ADJUSTABLE> per entries if isRatioSchedule is true; per seconds if isRatioSchedule is false.  <HTML ADJUSTABLE>
-		SETUP_TEXT_losingRate: 'Losing rate:<br>Use an integer. It will be used according to the reinforcement schedule type:<br>* in RATIO schedule each TRIAL will have 1/x of losing.<br> * in INTERVAL schedule each second (measured from the last entry) will have 1/x chance of making the raward available, "waiting" to be collected.', // <HTML ADJUSTABLE>
+		SETUP_TEXT_losingRate: 'Losing rate:<br>Use an integer. It will be used according to the reinforcement schedule type:<br>* in a RATIO schedule each TRIAL will have 1/x of losing.<br> * in an INTERVAL schedule each second (measured from the last entry) will have 1/x chance of making the reward available, "waiting" to be collected.', // <HTML ADJUSTABLE>
 		losingChancePerUnit: function () {
 			return 1 / this.losingRate;
 		},
 
 		isVariableLoss: false, // <MAYBE MAKE IT HTML ADJUSTABLE>
-		SETUP_TEXT_isVariableLoss: 'Use a variable loss amount?<br>* if set to false a constant sum will be used.<br>* if set to true will be sample from a uniform distribution according to the values specifies where relevant below.', // <HTML ADJUSTABLE>
+		SETUP_TEXT_isVariableLoss: 'Use a variable loss amount?<br>* if set to false a constant sum will be used.<br>* if set to true will be sampled from a uniform distribution according to the values specified where relevant below.', // <HTML ADJUSTABLE>
 		// for constant loss:
 		lossConstantSum: 15,
 		SETUP_TEXT_lossConstantSum: 'Constant loss sum (applicable if "Use a variable loss amount" above was set to false):', // <HTML ADJUSTABLE>
@@ -95,32 +95,32 @@ window.app_settings = {
 		group_A: {
 			SETUP_TEXT_dayToFinishExperiment: 'Day to finish experiment:<br>* Note, the experiment will end on the first entry on that day, thus if for example it is set to 5, the game will last 4 days).', // <HTML ADJUSTABLE>
 			dayToFinishExperiment: 5, // short training
-			SETUP_TEXT_daysWithControlManipulations: 'Days with control manipulations:<br>* If more than one day is chosen use comma to seperate (e.g. 2,4).<br>* leave (or change to) empty to not use it.', // <HTML ADJUSTABLE>
+			SETUP_TEXT_daysWithControlManipulations: 'Days with control manipulations:<br>* If more than one day is chosen use commas to separate (e.g. 2,4).<br>* leave (or change to) empty to not use it.', // <HTML ADJUSTABLE>
 			daysWithControlManipulations: [2, 4],
-			SETUP_TEXT_daysWithDevaluationManipulations: 'Days with devaluation manipulations:<br>* If more than one day is chosen use comma to seperate (e.g. 2,4).<br>* leave (or change to) empty to not use it.', // <HTML ADJUSTABLE>
+			SETUP_TEXT_daysWithDevaluationManipulations: 'Days with devaluation manipulations:<br>* If more than one day is chosen use commas to separate (e.g. 2,4).<br>* leave (or change to) empty to not use it.', // <HTML ADJUSTABLE>
 			daysWithDevaluationManipulations: [3],
 		},
 		SETUP_TEXT_group_B: 'NOTE: The following group B parameters will be used for subject numbers 201-299, 501-599, 801-899 etc.', // <HTML ADJUSTABLE>
 		group_B: {
 			SETUP_TEXT_dayToFinishExperiment: 'Day to finish experiment:<br>* Note, the experiment will end on the first entry on that day, thus if for example it is set to 5, the game will last 4 days).', // <HTML ADJUSTABLE>
 			dayToFinishExperiment: 12, // long training
-			SETUP_TEXT_daysWithControlManipulations: 'Days with control manipulations:<br>* If more than one day is chosen use comma to seperate (e.g. 2,4).<br>* leave (or change to) empty to not use it.', // <HTML ADJUSTABLE>
+			SETUP_TEXT_daysWithControlManipulations: 'Days with control manipulations:<br>* If more than one day is chosen use commas to separate (e.g. 2,4).<br>* leave (or change to) empty to not use it.', // <HTML ADJUSTABLE>
 			daysWithControlManipulations: [9, 11],
-			SETUP_TEXT_daysWithDevaluationManipulations: 'Days with devaluation manipulations:<br>* If more than one day is chosen use comma to seperate (e.g. 2,4).<br>* leave (or change to) empty to not use it.', // <HTML ADJUSTABLE>
+			SETUP_TEXT_daysWithDevaluationManipulations: 'Days with devaluation manipulations:<br>* If more than one day is chosen use commas to separate (e.g. 2,4).<br>* leave (or change to) empty to not use it.', // <HTML ADJUSTABLE>
 			daysWithDevaluationManipulations: [10],
 		},
 		SETUP_TEXT_group_C: 'NOTE: The following group C parameters will be used for subject numbers 301-399, 601-699, 901-999 etc.', // <HTML ADJUSTABLE>
 		group_C: {
 			SETUP_TEXT_dayToFinishExperiment: 'Day to finish experiment:<br>* Note, the experiment will end on the first entry on that day, thus if for example it is set to 5, the game will last 4 days).', // <HTML ADJUSTABLE>
 			dayToFinishExperiment: 12, // long training parallel manipulations
-			SETUP_TEXT_daysWithControlManipulations: 'Days with control manipulations:<br>* If more than one day is chosen use comma to seperate (e.g. 2,4).<br>* leave (or change to) empty to not use it.', // <HTML ADJUSTABLE>
+			SETUP_TEXT_daysWithControlManipulations: 'Days with control manipulations:<br>* If more than one day is chosen use commas to separate (e.g. 2,4).<br>* leave (or change to) empty to not use it.', // <HTML ADJUSTABLE>
 			daysWithControlManipulations: [2, 3, 4, 9, 11],
-			SETUP_TEXT_daysWithDevaluationManipulations: 'Days with devaluation manipulations:<br>* If more than one day is chosen use comma to seperate (e.g. 2,4).<br>* leave (or change to) empty to not use it.', // <HTML ADJUSTABLE>
+			SETUP_TEXT_daysWithDevaluationManipulations: 'Days with devaluation manipulations:<br>* If more than one day is chosen use commas to separate (e.g. 2,4).<br>* leave (or change to) empty to not use it.', // <HTML ADJUSTABLE>
 			daysWithDevaluationManipulations: [10],
 		},
 	},
 	feedback_in_devalued_actions: false, // <HTML ADJUSTABLE>
-	SETUP_TEXT_feedback_in_devalued_actions: 'Feedback on devalued actions:<br>* should participants recieve feedback that the outcome is devalued when entering when it is devalued?', // <HTML ADJUSTABLE>
+	SETUP_TEXT_feedback_in_devalued_actions: 'Feedback on devalued actions:<br>* should participants receive feedback that the outcome is devalued (when entering when it is devalued)?', // <HTML ADJUSTABLE>
 	// for non-personalized time of manipulation:
 	entry_to_manipulate_in: 5, // manipulation will occur on the entry_to_manipulate_in, namely entry_to_manipulate_in - 1 will have to be completed // <HTML ADJUSTABLE>
 	SETUP_TEXT_entry_to_manipulate_in: 'Daily entry to manipulate in (on control and outcome devaluation manipulation days)', // <HTML ADJUSTABLE>
@@ -140,7 +140,7 @@ window.app_settings = {
 	msToRecordTimeSinceManipulationActivation: 500, // in ms
 	// Manipulation checks:
 	use_warehouse_state_query: false, // <HTML ADJUSTABLE>
-	SETUP_TEXT_use_warehouse_state_query: 'Use warehouse state query?<br>* if <b>false</b>: a gold collection (in cave) short sub-task will appear after each manipulation (control and outcome devaluation).<br>* if <b>true</b>: Instead of the sub-task, participants will be asked to indicate (by typing) "partially full" or "completely full" after each manipulaiton.', // <HTML ADJUSTABLE>
+	SETUP_TEXT_use_warehouse_state_query: 'Use warehouse state query?<br>* if <b>false</b>: a gold collection (in cave) short sub-task will appear after each manipulation (control and outcome devaluation).<br>* if <b>true</b>: Instead of the sub-task, participants will be asked to indicate (by typing) "partially full" or "completely full" after each manipulation.', // <HTML ADJUSTABLE>
 	coinCollectionTask: {
 		includeRocks: true,
 		includeBombs: false, // <HTML ADJUSTABLE>
@@ -168,7 +168,7 @@ window.app_settings = {
 		hide: true,
 		hideOnlyUnderManipulationPeriods: false, // if false will hide every day from what we set in daysToHideAt_UntilTomorrow
 		SETUP_TEXT_TITLE_1: 'Days to conceal the outcome <i>from some point and for the rest of the day</i>:', // <HTML ADJUSTABLE>
-		SETUP_TEXT_SUB_TITLE_1: 'Days to conceal the outcome until the next day:<br>* use commas to seperate between days.<br>* leave (or change to) empty to not use it.<br>* you can ignore groups you do not intend to use.', // <HTML ADJUSTABLE>
+		SETUP_TEXT_SUB_TITLE_1: 'Days to conceal the outcome until the next day:<br>* use commas to separate between days.<br>* leave (or change to) empty to not use it.<br>* you can ignore groups you do not intend to use.', // <HTML ADJUSTABLE>
 		daysToHideAt_UntilTomorrow: { // detemine according to group name <HTML ADJUSTABLE>
 			group_A: [2, 3, 4], // short training
 			SETUP_TEXT_group_A: 'group A:', // <HTML ADJUSTABLE>
@@ -181,7 +181,7 @@ window.app_settings = {
 		SETUP_TEXT_entry_to_hideOutcome_in: 'Daily entry to begin concealing the outcome at:<br>* this will take effect only on the days defined above.', // relevant if hideOnlyUnderManipulationPeriods is false.  <HTML ADJUSTABLE>
 
 		SETUP_TEXT_TITLE_2: 'Days to conceal the outcome <i>at random each time for a limited number of entries</i>:', // <HTML ADJUSTABLE>
-		SETUP_TEXT_SUB_TITLE_2: 'Days to randomly conceal the outcomes:<br><i>* NOTE: if the same day is set both for "until the next day" (above) and "random batches" (below), the former will take precedence for that day.</i><br>* use commas to seperate between days.<br>* leave (or change to) empty to not use it.<br>* you can ignore groups you do not intend to use.', // <HTML ADJUSTABLE>
+		SETUP_TEXT_SUB_TITLE_2: 'Days to randomly conceal the outcomes:<br><i>* NOTE: if the same day is set both for "until the next day" (above) and "random batches" (below), the former will take precedence for that day.</i><br>* use commas to separate between days.<br>* leave (or change to) empty to not use it.<br>* you can ignore groups you do not intend to use.', // <HTML ADJUSTABLE>
 		daysToHideAt_Randomly: { // detemine according to group name <HTML ADJUSTABLE> >> leave empty if not relevant
 			group_A: [], // short training
 			SETUP_TEXT_group_A: 'group A:', // <HTML ADJUSTABLE>
@@ -191,7 +191,7 @@ window.app_settings = {
 			SETUP_TEXT_group_C: 'group C:', // <HTML ADJUSTABLE>
 		}, // [2, 3, 4, 5, 8, 10, 12],
 		chance_to_begin_hiding_batch_when_Random: 0.33, // <HTML ADJUSTABLE>
-		SETUP_TEXT_chance_to_begin_hiding_batch_when_Random: 'Probability to begin a batch of concealed outcome entries:<br>* this refers to the chance on a given entry which is not in previously initiated batch or a first entry after that batch.<br>* this will take effect only for the days defined above.', // <HTML ADJUSTABLE>
+		SETUP_TEXT_chance_to_begin_hiding_batch_when_Random: 'Probability to begin a batch of concealed outcome entries:<br>* this refers to the chance on a given entry which is not in a previously initiated batch or a first entry after that batch.<br>* this will take effect only for the days defined above.', // <HTML ADJUSTABLE>
 		n_entriesToHide_when_Random: 2, // <HTML ADJUSTABLE>
 		SETUP_TEXT_n_entriesToHide_when_Random: 'Concealed outcomes batch size (number of entries): <br>* this will take effect only on the days defined above.', // <HTML ADJUSTABLE>
 	},
