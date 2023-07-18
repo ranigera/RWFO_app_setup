@@ -124,6 +124,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     container.appendChild(h3);
                     var li = document.createElement("li");
                     li.innerHTML = 'Choosing to integrate loss will introduce "bombs" into the game that indicate money loss.';
+                    container.appendChild(li);
+                    // html space sumbol: &nbsp;
+                    var li = document.createElement("li");
+                    li.innerHTML = '<b>IMPORTANT:</b> Reward calculations will slightly differ if loss trials (entries) are introduced:<br>&nbsp&nbsp&nbsp&nbsp When both a win and a loss are "chosen" according to their probabilities, one of them is randomly selected (with a 50/50 chance).<br>&nbsp&nbsp&nbsp&nbsp If arandom interval reinforcement schedule is used, trials ending with the opposite outcome are ignored when calculating the chance of a new item becoming available.';
                     li.style.marginBottom = "2%";
                     container.appendChild(li);
                     var description = app_settings[key][key2], var_name = key.concat('.', key2.replace("SETUP_TEXT_", "")), value = app_settings[key][key2.replace("SETUP_TEXT_", "")];
@@ -213,7 +217,6 @@ document.addEventListener("DOMContentLoaded", function () {
                     var description = app_settings[key][key2], var_name = key.concat('.', key2.replace("SETUP_TEXT_", "")), value = app_settings[key][key2.replace("SETUP_TEXT_", "")];
                     var inputField = createInputField(description, var_name, value);
                     container.appendChild(inputField);
-                    console.log('MNBNBN')
                     // chack if key2 is an object:
                 } else if (typeof app_settings[key][key2] === "object") {
                     for (var key3 in app_settings[key][key2]) {
